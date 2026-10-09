@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+/* ─── NEXUS Design System ────────────────────────────────────────── */
+
+@theme {
+  /* ── Color Palette ─────────────────────────────────────────────── */
+  --color-nexus-bg: #0a0e1a;
+  --color-nexus-surface: #111827;
+  --color-nexus-surface-2: #1a2236;
+  --color-nexus-surface-3: #1f2b3e;
+  --color-nexus-border: #2a3550;
+  --color-nexus-border-light: #374561;
+  
+  --color-nexus-cyan: #06d6f2;
+  --color-nexus-cyan-dim: #0aa0b8;
+  --color-nexus-blue: #3b82f6;
+  --color-nexus-violet: #8b5cf6;
+  --color-nexus-teal: #14b8a6;
+  --color-nexus-amber: #f59e0b;
+  --color-nexus-red: #ef4444;
+  --color-nexus-green: #22c55e;
+  
+  --color-nexus-text: #f1f5f9;
+  --color-nexus-text-secondary: #94a3b8;
+  --color-nexus-text-muted: #64748b;
+
+  /* ── Spacing ───────────────────────────────────────────────────── */
+  --radius-nexus: 12px;
+  --radius-nexus-sm: 8px;
+  --radius-nexus-lg: 16px;
+  --radius-nexus-xl: 24px;
+}
+
+/* ─── Base ───────────────────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-nexus-bg);
+  color: var(--color-nexus-text);
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Glass Effect Utility ───────────────────────────────────────── */
+
+.glass {
+  background: rgba(17, 24, 39, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(42, 53, 80, 0.5);
+}
+
+.glass-light {
+  background: rgba(26, 34, 54, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(55, 69, 97, 0.4);
+}
+
+/* ─── Glow Effects ───────────────────────────────────────────────── */
+
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(6, 214, 242, 0.15), 0 0 60px rgba(6, 214, 242, 0.05);
+}
+
+.glow-blue {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15), 0 0 60px rgba(59, 130, 246, 0.05);
+}
+
+.glow-violet {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.15), 0 0 60px rgba(139, 92, 246, 0.05);
+}
+
+/* ─── Gradient Text ──────────────────────────────────────────────── */
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #06d6f2, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-violet {
+  background: linear-gradient(135deg, #8b5cf6, #06d6f2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Animated Background Grid ───────────────────────────────────── */
+
+.nexus-grid {
+  background-image:
+    linear-gradient(rgba(6, 214, 242, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 214, 242, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ─── Pulse Dot ──────────────────────────────────────────────────── */
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.5); }
+}
+
+.pulse-dot {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ─── Floating Animation ─────────────────────────────────────────── */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-nexus-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-nexus-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-nexus-border-light);
+}
+
+/* ─── Focus Ring ─────────────────────────────────────────────────── */
+
+*:focus-visible {
+  outline: 2px solid var(--color-nexus-cyan);
+  outline-offset: 2px;
+}
+
+/* ─── 3D Utilities ─────────────────────────────────────────────────── */
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* ─── Reduced Motion ─────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
